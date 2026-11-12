@@ -9,7 +9,7 @@
             --bg-dark: #0f172a;
             --card-bg: #1e293b;
             --primary: #f59e0b;
-            --primary-hover: #d97706;
+            --: #d97706;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --accent: #3b82f6;
@@ -218,45 +218,4 @@
             if(!email) email = "user@gmail.com"; // Default for Google/Quick login simulation
             document.getElementById('userDisplayEmail').innerText = email;
             
-            // Switch screens
-            document.getElementById('loginScreen').classList.remove('active');
-            document.getElementById('dashboardScreen').classList.add('active');
-        }
-
-        function handleLogout() {
-            document.getElementById('dashboardScreen').classList.remove('active');
-            document.getElementById('loginScreen').classList.add('active');
-        }
-
-        function calculateTotal() {
-            let count = document.getElementById('ticketCount').value;
-            if(count < 1) count = 1;
-            let ticketPrice = 15.00 * count;
-            let cardType = document.getElementById('cardType').value;
-            
-            let feePercent = (cardType === 'eu') ? 0.015 : 0.0325;
-            let fixedFee = 0.25;
-            let gatewayFee = (ticketPrice * feePercent) + (fixedFee * count);
-            let total = ticketPrice + gatewayFee;
-
-            document.getElementById('priceSummary').innerHTML = `
-                Ticket Price: €${ticketPrice.toFixed(2)}<br>
-                Gateway Fee: €${gatewayFee.toFixed(2)}<br>
-                <strong>Total Amount: €${total.toFixed(2)}</strong>
-            `;
-        }
-
-        // Live Countdown Timer Simulation
-        let secondsLeft = 485200;
-        setInterval(() => {
-            secondsLeft--;
-            let days = Math.floor(secondsLeft / (3600 * 24));
-            let hours = Math.floor((secondsLeft % (3600 * 24)) / 3600);
-            let minutes = Math.floor((secondsLeft % 3600) / 60);
-            let seconds = secondsLeft % 60;
-            document.getElementById('countdown').innerText = `${days} Days : ${hours} Hrs : ${minutes} Mins : ${seconds} Secs`;
-        }, 1000);
-    </script>
-
-</body>
-</html>
+        
